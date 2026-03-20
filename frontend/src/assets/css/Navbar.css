@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ===== CSS VARIABLES - LIGHT THEME ===== */
+:root {
+  --bg: #f4f4f5;
+  --surface: #ffffff;
+  --surface-hover: #f9fafb;
+  --border: #e5e7eb;
+  --text-primary: #0f0f0f;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --blue: #2563EB;
+  --blue-dark: #1d4ed8;
+  --black-btn: #0f0f0f;
+  --black-btn-hover: #1a1a1a;
+  --shadow: 0 4px 24px rgba(0,0,0,0.07);
+  --radius: 12px;
+  --nav-height: 64px;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: 0.22s cubic-bezier(.4,0,.2,1);
+}
+
+/* ===== DARK THEME ===== */
+body.dark {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface-hover: #22263a;
+  --border: #2a2d3e;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --blue: #3b82f6;
+  --blue-dark: #2563eb;
+  --black-btn: #3b82f6;
+  --black-btn-hover: #2563eb;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: var(--nav-height);
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  transition: background var(--transition), border-color var(--transition);
+  box-shadow: var(--shadow);
+}
+
+/* Brand */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 41px;
+  height: 45px;
+  background: url(D:\newCEMS\frontend\public\mits_logo.png);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.nav-left img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+.nav-left span {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  transition: color var(--transition);
+}
+
+/* Hamburger */
+.menu-icon {
+  display: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background var(--transition);
+}
+.menu-icon:hover { background: var(--surface-hover); }
+
+/* Right section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-right a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 7px 13px;
+  border-radius: 8px;
+  transition: color var(--transition), background var(--transition);
+}
+
+.nav-right a:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+/* Theme toggle */
+.theme-btn {
+  background: var(--surface-hover);
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-left: 4px;
+}
+.theme-btn:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+/* Auth buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.btn.login {
+  background: none;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+}
+.btn.login:hover {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
+}
+
+.btn.signup {
+  background: var(--black-btn);
+  color: #fff;
+}
+body.dark .btn.signup { background: var(--blue); }
+.btn.signup:hover { background: var(--black-btn-hover); opacity: 0.92; }
+
+.btn.logout {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background var(--transition);
+}
+.btn.logout:hover { background: #fca5a5; }
+
+/* Profile avatar in nav */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  border-radius: 30px;
+  background: var(--surface-hover);
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+  margin-left: 8px;
+}
+.nav-profile:hover { border-color: var(--blue); }
+.nav-profile img,
+.nav-profile .nav-avatar-placeholder {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+.nav-profile span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .navbar { padding: 0 20px; }
+  .menu-icon { display: flex; }
+
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px 20px;
+    gap: 4px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-right.active { display: flex; }
+  .nav-right a { width: 100%; padding: 10px 14px; }
+  .auth-buttons { flex-direction: column; width: 100%; margin-left: 0; margin-top: 8px; }
+  .auth-buttons .btn { width: 100%; text-align: center; }
+  .btn.logout { width: 100%; margin-left: 0; margin-top: 8px; }
+  .nav-profile { width: 100%; margin-left: 0; margin-top: 8px; }
+}

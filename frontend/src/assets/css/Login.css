@@ -1,0 +1,192 @@
+/* Login.css — uses global CSS variables from Nav.css */
+
+.login-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--bg);
+  transition: background var(--transition);
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 44px 48px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow);
+  animation: cardIn 0.4s cubic-bezier(.22,.68,0,1.2) both;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Logo */
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.auth-logo-icon {
+  /* width: 28px;
+  height: 28px; */
+  /* background: var(--blue); */
+    background: url(D:\newCEMS\frontend\public\mits_logo.png);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transition: background var(--transition); */
+}
+
+.auth-logo-icon img{
+    width: 48px;
+  height: 48px;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+  transition: color var(--transition);
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 28px;
+  transition: color var(--transition);
+}
+
+/* Role tabs */
+.role-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.role-tab {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.role-tab.active {
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+body.dark .role-tab.active { box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+
+/* Fields */
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition);
+}
+
+.forgot-link {
+  font-size: 0.87rem;
+  color: var(--blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+.field-input {
+  width: 100%;
+  padding: 11px 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  background: var(--surface);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition),
+              background var(--transition), color var(--transition);
+}
+
+.field-input::placeholder { color: var(--text-muted); }
+
+.field-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+body.dark .field-input:focus {
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
+}
+
+/* Submit */
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background: var(--black-btn);
+  color: #fff;
+  border: none;
+  border-radius: 11px;
+  font-family: var(--font-display);
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  letter-spacing: 0.1px;
+  transition: background var(--transition), transform 0.15s, opacity 0.15s;
+}
+.btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .login-card { padding: 32px 22px; }
+  .auth-title { font-size: 1.45rem; }
+}
